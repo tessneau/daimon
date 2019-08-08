@@ -16,7 +16,7 @@ Habit.destroy_all
 Category.destroy_all
 
 #################### users ####################
-20.times do
+40.times do
   User.create(username: Faker::TvShows::TwinPeaks.character.split(' ').join(''), password_digest: "123", avatar_img: Faker::Fillmurray.image(width: 200, height: 200) )
 end
 
@@ -97,9 +97,9 @@ HabitCategory.create(habit: dont_drink, category: addiction)
 
 #################### Posts ##################################
 100.times do
-  Post.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, category: Category.all.sample, author: User.all.sample)
+  Post.create(title: Faker::TvShows::TwinPeaks.quote, content: Faker::Lorem.paragraph, category: Category.all.sample, author: User.all.sample)
 
-  Comment.create(content: Faker::Lorem.paragraph, post: Post.all.sample, user: User.all.sample)
+  Comment.create(content: Faker::GreekPhilosophers.quote, post: Post.all.sample, user: User.all.sample)
 
   Branch.create(user: User.all.sample, post: Post.all.sample)
 end
