@@ -1,4 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :upvotes
-  has_one :category
+  attributes :id, :title, :content
+  has_one :author
+
 end

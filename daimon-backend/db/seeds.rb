@@ -17,7 +17,7 @@ Category.destroy_all
 
 #################### users ####################
 40.times do
-  User.create(username: Faker::TvShows::TwinPeaks.character.split(' ').join(''), password_digest: "123", avatar_img: Faker::Fillmurray.image(width: 200, height: 200) )
+  User.create(username: Faker::TvShows::TwinPeaks.character.split(' ').join(''), password: "123", avatar_img: Faker::Fillmurray.image(width: 200, height: 200) )
 end
 
 #################### habits ####################
