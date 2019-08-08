@@ -1,0 +1,2 @@
+class HabitCategoriesController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class UserHabitsController < ApplicationController
+end
