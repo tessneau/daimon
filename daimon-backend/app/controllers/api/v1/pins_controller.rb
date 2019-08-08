@@ -1,2 +1,7 @@
-class PinsController < ApplicationController
+module Api
+  module V1
+    class PinsController < ApplicationController
+      
+    end
+  end
 end

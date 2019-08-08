@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 UserHabit.destroy_all
 HabitCategory.destroy_all
+Pin.destroy_all
+Comment.destroy_all
+Branch.destroy_all
+Post.destroy_all
 User.destroy_all
 Habit.destroy_all
 Category.destroy_all
@@ -90,5 +94,18 @@ HabitCategory.create(habit: dont_drink, category: career)
 HabitCategory.create(habit: dont_drink, category: fitness)
 HabitCategory.create(habit: dont_drink, category: self_confidence)
 HabitCategory.create(habit: dont_drink, category: addiction)
+
+#################### Posts ##################################
+100.times do
+  Post.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, category: Category.all.sample, author: User.all.sample)
+
+  Comment.create(content: Faker::Lorem.paragraph, post: Post.all.sample, user: User.all.sample)
+
+  Branch.create(user: User.all.sample, post: Post.all.sample)
+end
+
+40.times do
+  Pin.create(user: User.all.sample, post: Post.all.sample)
+end
 
 puts 'YOU GOT ITTTTTTT   🔥🌋'

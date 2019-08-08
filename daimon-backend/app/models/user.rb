@@ -10,5 +10,8 @@ class User < ApplicationRecord
   has_many :comments,dependent: :destroy
   has_many :commented_posts, through: :comments, source: :post
 
+  has_many :branches, dependent: :destroy
+  has_many :branched_posts, through: :branches, source: :post
+
   validates :username, presence:true
 end
