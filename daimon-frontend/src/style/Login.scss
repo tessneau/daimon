@@ -1,0 +1,76 @@
+.form-container {
+  width: 100vw;
+  height: 100vw;
+  background-color: peru;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+
+  &.signup {
+    background-color: maroon;
+  }
+
+  form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: transparent;
+    padding: 20px 30px;
+    border: 1px solid #f1f1f1;
+
+      &:focus-within {
+        background-color: chocolate;
+      }
+
+      label {
+      margin: 20px;
+      padding: 10px 0px;
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active  {
+        -webkit-box-shadow: 0 0 0 30px peru inset !important;
+         -webkit-text-fill-color: white !important;
+      }
+
+      input[type=text], input[type=password] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid white;
+      padding: 0px 0px;
+      color: white;
+      font-size: 20px;
+      &:focus {
+        outline: none;
+      }
+      // textarea {
+      //   background-color: transparent;
+      // }
+    }
+
+    .form-btn {
+      margin: 50px 10px 5px 10px;
+      padding: 10px 70px;;
+      background: transparent;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      border: 2px solid white;
+      cursor: pointer;
+      &:hover {
+        &.login {
+          background: maroon;
+        }
+        &.signup {
+          background: peru;
+        }
+      }
+
+    }
+  }
+
+}

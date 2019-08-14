@@ -20,6 +20,8 @@ Category.destroy_all
   User.create(username: Faker::TvShows::TwinPeaks.character.split(' ').join(''), password: "123", avatar_img: Faker::Fillmurray.image(width: 200, height: 200) )
 end
 
+User.create(username: 'blacksheep', password: '123', avatar_img: 'https://www.blacksheepon39th.com/images/blacksheep.png')
+
 #################### habits ####################
 
 walk_dog = Habit.create(name: "Walk the dog", positive: true, maxFrequency: "3", firstDay: Faker::Time.backward(days: 5, period: :all, format: :default))

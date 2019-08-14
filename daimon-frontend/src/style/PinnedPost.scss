@@ -1,0 +1,18 @@
+.pinned-post-item {
+    width: 80%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    // left: 30%;
+    border: 2px solid white;
+    margin: 20px 0px;
+    padding: 20px 0px;
+
+  .title {
+    width: 90%;
+    font-weight: bold;
+    }
+  .content {
+    width: 90%;
+  }
+}

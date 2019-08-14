@@ -1,0 +1,32 @@
+.app-container {
+  // margin-top: 0px;
+  // background-color: #FE840E;
+  background-color: chocolate;
+  color: #F0EAD6;
+  width: auto;
+  height: 1000vw;
+}
+
+.btn {
+  margin: 50px 10px 5px 10px;
+  padding: 10px 70px;;
+  background: transparent;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.anch {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover {
+    &.login {
+      color: maroon;
+    }
+    &.signup {
+      color: peru;
+    }
+    cursor: pointer;
+  }
+}

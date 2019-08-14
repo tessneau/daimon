@@ -1,3 +1,3 @@
 class HabitSerializer < ActiveModel::Serializer
-  attributes :id, :name, :type, :maxFrequency, :firstDay
+  attributes :id, :name, :positive, :maxFrequency, :firstDay
 end

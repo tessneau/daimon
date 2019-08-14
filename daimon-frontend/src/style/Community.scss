@@ -1,0 +1,42 @@
+.community-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  .custom-select {
+    background-color: #F0EAD6;
+    font-size: 15px;
+    width: 160px;
+    height: 30px;
+    border: 0px solid #DD4132;
+    color: #DD4132;
+    border-radius: 0px;
+    outline:none;
+  }
+
+  .category-info {
+    width: 90%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .name {
+      text-align: center;
+    }
+  }
+}

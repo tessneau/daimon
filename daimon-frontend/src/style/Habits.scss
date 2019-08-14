@@ -1,0 +1,16 @@
+.habits-container {
+  height: 400vw;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  .habits-ul {
+    width: 80%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4em;
+    row-gap: 4em;
+  }
+
+}
