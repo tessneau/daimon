@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import '../style/PinnedPost.scss'
+import { connect } from 'react-redux';
+import { pinPost } from '../actions/postActions';
+import '../style/PinnedPost.scss';
 
 class PinnedPost extends Component {
+
+  state = {
+    pinned: false,
+    branched: false
+  }
 
   render() {
     return (
@@ -20,4 +27,14 @@ class PinnedPost extends Component {
 
 }
 
-export default PinnedPost;
+const mapStateToProps = state => {
+  return {
+    pinned_posts: state.currentUser.pinned_posts,
+  }
+}
+
+const mapDispatchToProps = {
+  pinPost: pinPost,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PinnedPost)

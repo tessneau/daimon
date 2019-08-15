@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import { getCurrentCategoryPosts } from '../actions/categoryActions';
+// import { getCurrentCategoryPosts } from '../actions/categoryActions';
 import Post from './Post';
 import '../style/PostsContainer.scss'
 
 class PostsContainer extends Component {
 
+  // componentDidMount() {
+  //   this.props.getPosts(this.props.categoryID)
+  // }
+
   generateCategoryPosts = () => {
-    if (this.props.category) {
-      // return <p>{this.props.category.name}</p>
+    if (this.props.category && this.props.pinned_posts) {
       return (
-        this.props.category.posts.map(post => <Post key={post.id} {...post} />)
+        this.props.category.posts.map(post => {
+          if (this.props.pinned_posts.find(pinned_post => post.id === pinned_post.id))
+          {return <Post key={post.id} {...post} pinned={true} />}
+          else
+          {return <Post key={post.id} {...post} pinned={false} />}
+          })
         )
     } else {
       return <h1>Loading the category...</h1>
@@ -29,12 +37,13 @@ class PostsContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    category: state.currentCategory
+    category: state.currentCategory,
+    pinned_posts: state.currentUser.pinned_posts
   }
 }
 
-const mapDispatchToProps = {
-  getPosts: getCurrentCategoryPosts
-}
+// const mapDispatchToProps = {
+//   getPosts: getCurrentCategoryPosts
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer)
+export default connect(mapStateToProps)(PostsContainer)

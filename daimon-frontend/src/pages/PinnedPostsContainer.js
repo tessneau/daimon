@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PinnedPost from './PinnedPost'
+import PinnedPost from './PinnedPost';
+// import Post from './Post'
 
 class PinnedPostsContainer extends Component {
 

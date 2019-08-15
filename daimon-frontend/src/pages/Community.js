@@ -30,28 +30,40 @@ class Community extends Component {
       )
   }
 
-
   handleChange = (e) => {
-    console.log(this.state)
     this.setState({categoryID: +e.target.value},() => this.props.getPosts(this.state.categoryID));
   }
 
-  render() {
-    return (
-      <div className="community-container">
-      <h1>COMMUNITY</h1>
-      <div className="header">
+  renderHeader = () => {
+    if (this.props.username && this.props.categories[0]) {
+      return (
+        <div>
+        <div className="header">
         <p>welcome {this.props.username}</p>
         <label> Categories
           <select className="custom-select" value={this.state.categoryID} onChange={this.handleChange}>
           {this.generateCategoriesSelect()}
           </select>
         </label>
-      </div>
+        </div>
       {
         this.props.categories[0] ? this.findCurrentCategory() : null
       }
       <PostsContainer />
+      </div>
+        )
+    } else {
+      return <h1>Loading...</h1>
+    }
+  }
+
+  render() {
+    return (
+      <div className="community-container">
+      <h1>COMMUNITY</h1>
+
+      {this.renderHeader()}
+
       </div>
     );
   }

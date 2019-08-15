@@ -6,13 +6,17 @@ import '../style/Post.scss';
 class Post extends Component {
 
   state = {
-    pinned: false,
+    pinned: this.props.pinned,
     branched: false
+  }
+
+  handleClick = () => {
+    this.props.pinPost(this.props.id)
+    this.setState({pinned: !this.state.pinned})
   }
 
 
   render() {
-
     return (
       <div className="post-item">
         <p className="title">{this.props.title}</p>
@@ -24,7 +28,7 @@ class Post extends Component {
             </p>
           </div>
           <div className="pin-container">
-            <button>{this.state.pinned ? 'already pinned' : 'pin this'}</button>
+            <button onClick={this.handleClick}>{this.state.pinned ? 'already pinned' : 'pin this'}</button>
           </div>
           <div className="author-container">
             <h4>Author</h4>
@@ -37,14 +41,9 @@ class Post extends Component {
   }
 
 }
-const mapStateToProps = state => {
-  return {
-    pinned_posts: state.currentUser.pinned_posts,
-  }
-}
 
 const mapDispatchToProps = {
   pinPost: pinPost,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post)
+export default connect(null, mapDispatchToProps)(Post)
