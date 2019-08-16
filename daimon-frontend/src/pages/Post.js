@@ -24,11 +24,11 @@ class Post extends Component {
         <div className="footer">
           <div className="branch-container">
             <p>Branches: {this.props.branch_count} <br></br>
-            <button>{this.state.branched ? 'unbranch' : 'add branch'}</button>
+            <button className="branch-btn">{this.state.branched ? 'unbranch' : 'branch'}</button>
             </p>
           </div>
           <div className="pin-container">
-            <button onClick={this.handleClick}>{this.state.pinned ? 'already pinned' : 'pin this'}</button>
+            <button className="pin-btn" onClick={this.handleClick}>{this.state.pinned ? 'unpin' : 'pin'}</button>
           </div>
           <div className="author-container">
             <h4>Author</h4>

@@ -16,6 +16,24 @@
   width: 90%;
 }
 
+.branch-btn {
+  font-weight: bold;
+  font-size: 15px;
+  background: transparent;
+  text-shadow: 2px 2px red;
+  border: 2px solid red;
+  cursor: pointer;
+}
+
+.pin-btn {
+  font-weight: bold;
+  font-size: 15px;
+  background: transparent;
+  text-shadow: 2px 2px grey;
+  border: 2px solid grey;
+  cursor: pointer;
+}
+
 .footer {
   width: 90%;
   display: grid;

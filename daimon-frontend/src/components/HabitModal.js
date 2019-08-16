@@ -16,7 +16,6 @@ class HabitModal extends Component {
   }
 
   handleChange = (e) => {
-    console.log(e.target.value)
     if (e.target.type === 'checkbox') {
       this.setState({ positive: !this.state.positive })
     } else {
@@ -27,10 +26,11 @@ class HabitModal extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.createHabit(this.state)
+    this.props.handleModal()
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
 
     return (
       <div className="modal-container">
@@ -50,10 +50,14 @@ class HabitModal extends Component {
               onChange={this.handleChange} />
           </label>
           </div>
-          <label>
-            daily frequency:
-            <input type="number" name="maxFrequency" value={this.state.maxFrequency} onChange={this.handleChange} />
-          </label> <br></br>
+          {
+            this.state.positive ?
+            ( <label>
+              daily frequency:
+              <input type="number" name="maxFrequency" value={this.state.maxFrequency} onChange={this.handleChange} />
+            </label> ) : null
+          }
+          <br></br>
           <input type="submit" value="Submit" />
         </form>
       <button className="close-modal" onClick={this.handleClick}>close</button>

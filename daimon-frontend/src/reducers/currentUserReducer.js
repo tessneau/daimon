@@ -28,6 +28,35 @@ export default (state = initialState, action) => {
     // case 'SAVE_HABITS_TO_USER':
     //   return {...state, habits: [...state.habits, action.payload]}
 
+    /////////// HABIT ///////////////////
+
+    case 'CREATE_HABIT_START':
+      return {...state, loading: true}
+
+    case 'CREATE_HABIT_SUCCESS':
+    return {
+      ...state,
+      habits: [...state.habits, action.habit],
+      loading: false
+    }
+
+    case 'CREATE_HABIT_FAILURE':
+      return {...state, loading: false}
+
+    case 'DELETE_HABIT_START':
+      return {...state, loading: true}
+
+    case 'DELETE_HABIT_SUCCESS':
+    const newHabits = state.habits.filter(habit => habit.id !== action.id)
+    return {
+      ...state,
+      habits: newHabits,
+      loading: false
+    }
+
+    case 'DELETE_HABIT_FAILURE':
+      return {...state, loading: false}
+
     //////////// PINS ///////////////////
 
     case 'POST_PIN_START':
@@ -36,7 +65,7 @@ export default (state = initialState, action) => {
     case 'POST_PIN_SUCCESS':
       return {
         ...state,
-        pinned_posts: [...state.pinned_posts, action.post], 
+        pinned_posts: [...state.pinned_posts, action.post],
         loading: false
       }
 
