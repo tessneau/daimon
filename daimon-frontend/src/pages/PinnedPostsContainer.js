@@ -9,7 +9,6 @@ class PinnedPostsContainer extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="pinned-posts-container">
       <h3>Pinned Posts</h3>

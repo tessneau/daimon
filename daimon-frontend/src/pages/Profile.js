@@ -11,7 +11,7 @@ class Profile extends Component {
       <h1>PROFILE</h1>
       <h3>Username: {this.props.username}</h3>
       <img src={this.props.avatar_img} alt="avatar"/>
-      
+
       <PinnedPostsContainer pinned_posts={this.props.pinned_posts}/>
       </div>
     );
@@ -20,7 +20,6 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     username: state.currentUser.username,
     avatar_img: state.currentUser.avatar_img,
