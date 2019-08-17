@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { pinPost } from '../actions/postActions';
+import { pinPost, branchPost } from '../actions/postActions';
 import '../style/Post.scss';
 
 class Post extends Component {
@@ -10,9 +10,13 @@ class Post extends Component {
     branched: false
   }
 
-  handleClick = () => {
+  handlePinClick = () => {
     this.props.pinPost(this.props.id)
     this.setState({pinned: !this.state.pinned})
+  }
+
+  handleBranchClick = () => {
+    this.props.branchPost(this.props.id)
   }
 
 
@@ -24,11 +28,11 @@ class Post extends Component {
         <div className="footer">
           <div className="branch-container">
             <p>Branches: {this.props.branch_count} <br></br>
-            <button className="branch-btn">{this.state.branched ? 'unbranch' : 'branch'}</button>
+            <button className="branch-btn" onClick={this.handleBranchClick}>{this.state.branched ? 'unbranch' : 'branch'}</button>
             </p>
           </div>
           <div className="pin-container">
-            <button className="pin-btn" onClick={this.handleClick}>{this.state.pinned ? 'unpin' : 'pin'}</button>
+            <button className="pin-btn" onClick={this.handlePinClick}>{this.state.pinned ? 'unpin' : 'pin'}</button>
           </div>
           <div className="author-container">
             <h4>Author</h4>
@@ -43,6 +47,7 @@ class Post extends Component {
 }
 
 const mapDispatchToProps = {
+  branchPost: branchPost,
   pinPost: pinPost,
 }
 

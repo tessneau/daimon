@@ -24,18 +24,17 @@ class PostsController < ApplicationController
 
   def branch
     branch = Branch.new(user: super_current_user, post: @post)
-    # if vote.save
-    #   render json: @problem, include: "**"
-    # else
-    #   down_vote = DownVote.find_by(user: current_user, problem: @problem)
-    #   down_vote.destroy if down_vote
-    #   vote = UpVote.new(user: current_user, problem: @problem)
-    #   if vote.save
-    #     render json: @problem, include: "**"
-    #   else
-    #     render json: { errors: vote.errors.full_messages }, stats: :unauthorized
-    #   end
-    # end
+    if branch.save
+      render json: @post
+    else
+      branch = Branch.find_by(user: super_current_user, post: @post)
+      if branch
+        branch.destroy
+        render json: @post
+      else
+        render json: { errors: branch.errors.full_messages }, stats: :unauthorized
+      end
+    end
   end
 
   def pin

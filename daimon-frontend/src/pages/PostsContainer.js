@@ -12,14 +12,12 @@ class PostsContainer extends Component {
 
   generateCategoryPosts = () => {
     if (this.props.category && this.props.pinned_posts) {
-      return (
-        this.props.category.posts.map(post => {
+      return this.props.category.posts.map(post => {
           if (this.props.pinned_posts.find(pinned_post => post.id === pinned_post.id))
           {return <Post key={post.id} {...post} pinned={true} />}
           else
           {return <Post key={post.id} {...post} pinned={false} />}
           })
-        )
     } else {
       return <h1>Loading the category...</h1>
     }
