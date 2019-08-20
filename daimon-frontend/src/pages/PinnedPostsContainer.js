@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PinnedPost from './PinnedPost';
-// import Post from './Post'
+import { connect } from 'react-redux';
 
 class PinnedPostsContainer extends Component {
 
@@ -16,7 +16,12 @@ class PinnedPostsContainer extends Component {
       </div>
     );
   }
-
 }
 
-export default PinnedPostsContainer;
+const mapStateToProps = state => {
+  return {
+    pinned_posts: state.currentUser.pinned_posts
+  }
+}
+
+export default connect(mapStateToProps)(PinnedPostsContainer)

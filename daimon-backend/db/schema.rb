@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_173709) do
   end
 
   create_table "user_habits", force: :cascade do |t|
+    t.integer "progress_count"
     t.bigint "user_id"
     t.bigint "habit_id"
     t.datetime "created_at", null: false

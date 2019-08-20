@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getCurrentHabits } from '../actions/habitActions'
 import Habit from '../components/Habit';
 import HabitModal from '../components/HabitModal'
 import '../style/Habits.scss';
@@ -15,8 +16,9 @@ class Habits extends Component {
   }
 
   generateHabits = () => {
-    if (this.props.habits){
-    return this.props.habits.map(habit => <Habit key={habit.id} habit={habit}/>)
+    if (this.props.user.habits){
+      console.log(this.props.user.habits)
+    return this.props.user.habits.map(habit => <Habit key={habit.id} {...habit.habit}/>)
   }}
 
   render() {
@@ -36,9 +38,14 @@ class Habits extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
-    habits: state.currentUser.habits
+    user: state.currentUser
   }
 }
+
+// const mapDispatchToProps = {
+//   getCurrentHabits: getCurrentHabits
+// }
 
 export default connect(mapStateToProps)(Habits)

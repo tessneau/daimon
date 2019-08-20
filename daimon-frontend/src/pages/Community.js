@@ -7,7 +7,7 @@ import PostsContainer from './PostsContainer'
 class Community extends Component {
 
   state = {
-    categoryID: 79
+    categoryID: 1
   }
 
   componentDidMount() {

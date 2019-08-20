@@ -36,12 +36,8 @@ class PostsContainer extends Component {
 const mapStateToProps = state => {
   return {
     category: state.currentCategory,
-    pinned_posts: state.currentUser.pinned_posts
+    pinned_posts: state.currentUser.pinned_posts,
   }
 }
-
-// const mapDispatchToProps = {
-//   getPosts: getCurrentCategoryPosts
-// }
 
 export default connect(mapStateToProps)(PostsContainer)

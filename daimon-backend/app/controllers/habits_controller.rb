@@ -21,6 +21,26 @@ class HabitsController < ApplicationController
     render json: habit
   end
 
+  def user_habits
+    user = User.find(params[:user_id])
+    render json: user.user_habits
+  end
+
+  def progress
+    habit = Habit.find(params[:id])
+    if habit
+      user_habit = UserHabit.find_by(user: super_current_user, habit: habit)
+      if user_habit && user_habit.progress_count < habit.maxFrequency
+        user_habit.update(progress_count: user_habit.progress_count+1)
+        render json: user_habit
+      else
+        render json: { message: "can't find that userhabit" }, status: :unauthorized
+      end
+    else
+      render json: { message: "can't find that habit" }, status: :unauthorized
+    end
+  end
+
   def destroy
     habit = Habit.find(params[:id])
     if habit

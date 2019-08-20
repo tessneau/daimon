@@ -18,20 +18,28 @@
 
 .branch-btn {
   font-weight: bold;
-  font-size: 15px;
-  background: transparent;
-  text-shadow: 2px 2px red;
+  color: white;
+  font-size: 20px;
+  background: black;
   border: 2px solid red;
+  border-radius: 5px;
+  box-shadow: 4px 4px red;
   cursor: pointer;
+  &:hover {
+    color: white;
+  }
 }
 
 .pin-btn {
   font-weight: bold;
-  font-size: 15px;
-  background: transparent;
-  text-shadow: 2px 2px grey;
+  font-size: 20px;
   border: 2px solid grey;
+  border-radius: 5px;
+  box-shadow: 4px 4px #888888;
   cursor: pointer;
+  &:hover {
+    color: black;
+  }
 }
 
 .footer {

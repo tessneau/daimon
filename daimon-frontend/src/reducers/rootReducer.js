@@ -5,6 +5,7 @@ import categories from './categoriesReducer';
 import currentCategory from './currentCategoryReducer';
 import habits from './habitReducer';
 import posts from './postsReducer';
+import currentHabit from './currentHabitReducer'
 
 export default combineReducers({
   currentUser,
@@ -12,5 +13,6 @@ export default combineReducers({
   categories,
   currentCategory,
   habits,
-  posts
+  posts,
+  currentHabit
 });

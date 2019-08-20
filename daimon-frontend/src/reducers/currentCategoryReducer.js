@@ -23,12 +23,12 @@ export default (state = initialState, action) => {
       return { ...state, loading: false };
 
     case "CREATE_BRANCH_SUCCESS":
-      const posts = state.posts.filter(post => post.id !== action.post.id)
-      const updatedPosts = [...posts, action.post]
-      return { ...state, posts: updatedPosts };
+      const index = state.posts.findIndex(post => post.id === action.post.id)
+      state.posts[index] = action.post
+      return { ...state };
 
     case "CREATE_BRANCH_FAILURE":
-      debugger
+      console.log('branch failure')
       return state;
 
     default:

@@ -8,6 +8,32 @@
     margin: 20px 0px;
     padding: 20px 0px;
 
+    .branch-btn {
+      font-weight: bold;
+      color: white;
+      font-size: 20px;
+      background: black;
+      border: 2px solid red;
+      border-radius: 5px;
+      box-shadow: 4px 4px red;
+      cursor: pointer;
+      &:hover {
+        color: white;
+      }
+    }
+
+    .pin-btn {
+      font-weight: bold;
+      font-size: 20px;
+      border: 2px solid grey;
+      border-radius: 5px;
+      box-shadow: 4px 4px #888888;
+      cursor: pointer;
+      &:hover {
+        color: black;
+      }
+    }
+
   .title {
     width: 90%;
     font-weight: bold;

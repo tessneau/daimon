@@ -1,5 +1,7 @@
 class UserHabitSerializer < ActiveModel::Serializer
-  attributes :id
-  has_one :user
-  has_one :habit
+  attributes :id, :progress_count, :habit
+
+  def habit
+    object.habit
+  end
 end
