@@ -38,10 +38,10 @@ export const createHabit = (habitInformation={}) => dispatch => {
     });
 };
 
-export const updateHabitProgress = id => dispatch => {
+export const updateHabitProgress = userHabitId => dispatch => {
   dispatch({ type: "UPDATE_HABIT_START" });
 
-  return fetch(`http://localhost:3000/habits/${id}`, {
+  return fetch(`http://localhost:3000/user_habits/${userHabitId}`, {
     method: "PATCH",
     headers: {
       'Content-Type': 'application/json',
@@ -58,17 +58,17 @@ export const updateHabitProgress = id => dispatch => {
     });
 };
 
-export const deleteHabit = (id) => dispatch => {
+export const deleteHabit = (userHabitId) => dispatch => {
   dispatch({ type: "DELETE_HABIT_START" });
 
-  return fetch(`http://localhost:3000/habits/${id}`, {
+  return fetch(`http://localhost:3000/user_habits/${userHabitId}`, {
     method: "DELETE",
     headers: {
       'Authorization': localStorage.token
     }
   })
     .then(() =>{
-      dispatch({ type: "DELETE_HABIT_SUCCESS", id: id });
+      dispatch({ type: "DELETE_HABIT_SUCCESS", id: userHabitId });
       })
     .catch(error => {
       dispatch({ type: "DELETE_HABIT_FAILURE", error: error });

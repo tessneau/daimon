@@ -13,9 +13,8 @@ class ProgressBar extends Component {
     console.log(this.props)
     return (
       <div className="progress-bar-container">
-        PROGRESS
         <div className="meter">
-          <span style={style}>{progress}%</span>
+          <span style={style}>{progress ? `${progress}%` : null }</span>
         </div>
       </div>
     );

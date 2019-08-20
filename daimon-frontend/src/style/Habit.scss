@@ -1,27 +1,32 @@
+.habit-and-progress {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  width: 300px;
+}
+
 .habit-card {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   border: 2px solid white;
-
   width: 100%;
   background-color: #BD3D3A;
 
-  text-align: center;
+}
 
-  .delete-habit {
-    color: #FE840E;
-    font-weight: bold;
-    font-size: 20px;
-    order: 0;
-    align-self: flex-end;
-    background: transparent;
-    outline: none;
-    border: 0px;
-    cursor: pointer;
-    &:hover {
-      color: red;
-      text-shadow: 2px 2px maroon;
-    }
+.delete-habit {
+  padding-right: 0px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  // float: right;
+  align-self: flex-end;
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  &:hover {
+    color: red;
+    text-shadow: 2px 2px maroon;
   }
 }

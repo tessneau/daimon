@@ -16,9 +16,8 @@ class Habits extends Component {
   }
 
   generateHabits = () => {
-    if (this.props.user.habits){
-      console.log(this.props.user.habits)
-    return this.props.user.habits.map(habit => <Habit key={habit.id} {...habit.habit}/>)
+    if (this.props.userHabits){
+    return this.props.userHabits.map(habit => <Habit key={habit.id} {...habit}/>)
   }}
 
   render() {
@@ -38,9 +37,8 @@ class Habits extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
-    user: state.currentUser
+    userHabits: state.currentUser.habits
   }
 }
 

@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get '/users/:user_id/pinned_posts', to:'posts#pinned_posts_index'
   post '/posts/:id/pins', to: 'posts#pin'
   post '/posts/:id/branches', to: 'posts#branch'
-  patch '/habits/:id', to: 'habits#progress'
-  get '/users/:user_id/habits', to: 'habits#user_habits'
+  patch '/user_habits/:id', to: 'user_habits#progress'
+  # get '/users/:user_id/habits', to: 'habits#user_habits'
   # post '/users/:user_id/pinned_posts', to:'posts#pin'
   # get '/users/:user_id/posts', to:'posts#user_posts'
   resources :habit_categories

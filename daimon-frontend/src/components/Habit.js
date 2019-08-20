@@ -22,35 +22,30 @@ class Habit extends Component {
   }
 
   render() {
+    const { habit } = this.props
     return (
       <div className="habit-and-progress">
       <button className="delete-habit" onClick={this.handleDelete}>x</button>
       <div className="habit-card" onClick={this.handleClick}>
-      <h3>{this.props.name}</h3>
-      <h3>TYPE: {this.props.positive ? 'DO' : "DON'T"}</h3>
-      <p>frequency: {this.props.maxFrequency}</p>
-      <p>progress: {this.props.progress_count}</p>
+      <h3>{habit.name}</h3>
+      <h3>TYPE: {habit.positive ? 'DO' : "DON'T"}</h3>
+      <p>daily goal: {habit.maxFrequency}</p>
+      <p>progress: {this.state.progress_count}</p>
 
       <p>first day:
-      <Moment fromNow>{this.props.firstDay}</Moment>
+      <Moment fromNow>{habit.firstDay}</Moment>
       </p>
       </div>
-        <ProgressBar frequency={this.props.maxFrequency} progress_count={this.props.progress_count}/>
+        <ProgressBar frequency={habit.maxFrequency} progress_count={this.state.progress_count}/>
       </div>
     );
   }
 
 }
 
-const mapStateToProps = state => {
-  return {
-    habits: state.currentUser.habits
-  }
+const mapDispatchToProps = {
+  updateHabitProgress: updateHabitProgress,
+  deleteHabit: deleteHabit,
 }
 
-const mapDispatchToProps = dispatch => ({
-  updateHabitProgress: (id) => dispatch(updateHabitProgress(id)),
-  deleteHabit: (id) => dispatch(deleteHabit(id)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Habit)
+export default connect(null, mapDispatchToProps)(Habit)
