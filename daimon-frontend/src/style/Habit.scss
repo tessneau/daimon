@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script:700|Playfair+Display:900|Trochut:700&display=swap');
+
 .habit-and-progress {
   display: flex;
   flex-flow: column wrap;
@@ -29,4 +31,10 @@
     color: red;
     text-shadow: 2px 2px maroon;
   }
+}
+
+.actual-pie {
+  color: white;
+  font-size: 36px;
+  fill: white;
 }
