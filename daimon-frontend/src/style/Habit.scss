@@ -4,26 +4,29 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  width: 300px;
+  width: 80%;
+  margin-left: 10%;
+  // width: 300px;
+  // border: 2px solid #BD3D3A;
+  border-radius: 20px 5px;
+  color: #30180A;
 }
 
 .habit-card {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  border: 2px solid white;
   width: 100%;
-  background-color: #BD3D3A;
 
 }
 
 .delete-habit {
   padding-right: 0px;
-  color: white;
+  color: #BD3D3A;
   font-weight: bold;
   font-size: 20px;
-  // float: right;
   align-self: flex-end;
+  padding-right: 7px;
   background: transparent;
   border: 0px;
   cursor: pointer;
@@ -34,7 +37,5 @@
 }
 
 .actual-pie {
-  color: white;
   font-size: 36px;
-  fill: white;
 }

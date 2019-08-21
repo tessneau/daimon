@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PinnedPost from './PinnedPost';
 import { connect } from 'react-redux';
+import '../style/PinnedPostContainer.scss'
 
 class PinnedPostsContainer extends Component {
 

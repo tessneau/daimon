@@ -14,11 +14,11 @@
       font-weight: bold;
       background-color: #DD4132;
       &:hover {
-        background-color: #BD3D3A;
+        background-color: #FE9A39;
       }
     }
     .selected {
-      background-color: chocolate;
+      background: linear-gradient(80deg, #FE9A39 10%, #DD4132 90%);;
     }
   }
 }

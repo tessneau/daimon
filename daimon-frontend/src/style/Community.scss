@@ -1,22 +1,30 @@
 .community-container {
+  height: 100%;
+  wdith: 100%;
   color: #E2DDB7;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 
   .header {
     width: 90%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
 
   label {
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
-    font-size: 15px;
+    align-items: flex-end;
+    // align-items: center;
+    font-size: 18px;
     font-weight: bold;
     line-height: 1.5;
+
+    p {
+      padding: 0px 30px;
+      margin: 5px;
+    }
   }
 
   .custom-select {

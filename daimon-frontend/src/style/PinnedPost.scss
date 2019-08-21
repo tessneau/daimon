@@ -1,42 +1,61 @@
 .pinned-post-item {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    // left: 30%;
     border: 2px solid white;
     margin: 20px 0px;
     padding: 20px 0px;
+    color: white;
 
-    .branch-btn {
-      font-weight: bold;
-      color: white;
-      font-size: 20px;
-      background: black;
-      border: 2px solid red;
-      border-radius: 5px;
-      box-shadow: 4px 4px red;
-      cursor: pointer;
-      &:hover {
+    .footer {
+      align-self: flex-end;
+      width: 40%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      align-items: center;
+
+      .branch-btn {
+        // align-self: center;
+        font-weight: bold;
         color: white;
+        font-size: 20px;
+        background: #DD4132;
+        border: 2px solid #DD4132;
+        border-radius: 5px;
+        // box-shadow: 4px 4px red;
+        cursor: pointer;
+        &:hover {
+          color: white;
+          background: #FE9A39;
+          border: 2px solid #FE9A39;
+        }
       }
-    }
 
-    .pin-btn {
-      font-weight: bold;
-      font-size: 20px;
-      border: 2px solid grey;
-      border-radius: 5px;
-      box-shadow: 4px 4px #888888;
-      cursor: pointer;
-      &:hover {
-        color: black;
+      .pin-btn {
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        background: #DD4132;
+        border: 0px;
+        // border: 2px solid #FE9A39;
+        border-radius: 5px;
+        // box-shadow: 2px 2px #FE9A39;
+        cursor: pointer;
+        &:hover {
+          color: white;
+          background: #FE9A39;
+          border: 2px solid #FE9A39;
+        }
       }
+
     }
 
   .title {
     width: 90%;
     font-weight: bold;
+    font-size: 20px;
     }
   .content {
     width: 90%;

@@ -11,7 +11,7 @@ class Habit extends Component {
 
   state = {
     progress_count : this.props.progress_count,
-    percent: (this.props.progress_count/ this.props.habit.maxFrequency)*100,
+    percent: Math.round(this.props.percent),
     data: this.getData(0)
   }
 
@@ -27,11 +27,12 @@ class Habit extends Component {
 
   handleClick = () => {
     this.props.updateHabitProgress(this.props.id)
+    if (this.state.progress_count < this.props.habit.maxFrequency) {
     this.setState({progress_count: this.state.progress_count + 1}, () => {
       let updatedPercent = (this.state.progress_count/ this.props.habit.maxFrequency)*100
       // updatedPercent = (updatedPercent >= 100) ? 100 : updatedPercent;
-      if (Math.round(updatedPercent) >= 100) {
-        updatedPercent = 0
+      if (updatedPercent >= 100) {
+        updatedPercent = 100
         this.setState({
           percent: updatedPercent,
           data: this.getData(updatedPercent)
@@ -41,8 +42,8 @@ class Habit extends Component {
           percent: updatedPercent,
           data: this.getData(updatedPercent)
           })
-      }
-      })
+      }})
+    }
   }
 
   handleDelete = () => {
@@ -63,7 +64,8 @@ class Habit extends Component {
           labels={() => null}
           style={{
             data: { fill: (d) => {
-              const color = d.y > 50 ? "rgb(250, 154, 133)" : "rgb(119, 33, 46)";
+              let color = d.y > 50 ? "rgb(254, 132, 14)" : "tomato";
+              color = d.y === 100 ? "rgb(200, 191, 100)" : color
               return d.x === 1 ? color : "transparent";
             }}
           }}
@@ -77,13 +79,13 @@ class Habit extends Component {
                 textAnchor="middle" verticalAnchor="middle"
                 x={200} y={180}
                 text={this.props.habit.name}
-                style={{ fontSize: 30, fill: 'white', fontFamily: 'Oleo Script' }}
+                style={this.props.habit.positive ? { fontSize: 30, fill: '#30180A', fontFamily: 'Oleo Script' } : { fontSize: 30, fill: 'white', fontFamily: 'Oleo Script' }}
               />
               <VictoryLabel
                 textAnchor="middle" verticalAnchor="middle"
                 x={200} y={240}
                 text={`${Math.round(newProps.percent)}%`}
-                style={{ fontSize: 30, fill: 'white', fontFamily: 'Oleo Script' }}
+                style={this.props.habit.positive ? { fontSize: 30, fill: '#30180A', fontFamily: 'Oleo Script' } : { fontSize: 30, fill: 'white', fontFamily: 'Oleo Script' }}
               />
               </>
             );
@@ -97,23 +99,19 @@ class Habit extends Component {
   render() {
     const { habit } = this.props
     return (
-      <div className="habit-and-progress">
-      <button className="delete-habit" onClick={this.handleDelete}>x</button>
-      <div className="habit-card" onClick={this.handleClick}>
-      <h3>{habit.name}</h3>
-      <h3>TYPE: {habit.positive ? 'DO' : "DON'T"}</h3>
-      <p>daily goal: {habit.maxFrequency}</p>
-      <p>progress: {this.state.progress_count}</p>
+      <div className="habit-and-progress" style={habit.positive ? {backgroundColor : '#F0EAD6'} : {backgroundColor : 'maroon'}}>
 
-      <p>first day:
-      <Moment fromNow>{habit.firstDay}</Moment>
-      </p>
-      </div>
-        <ProgressBar frequency={habit.maxFrequency} progress_count={this.state.progress_count}/>
+        <button className="delete-habit" onClick={this.handleDelete}>x</button>
 
-      <div className="habit-pie">
-      {this.generatePie()}
-      </div>
+        <div className="habit-card" onClick={this.handleClick}>
+          <h3>{habit.positive ? 'daily goal: ' + habit.maxFrequency : null}</h3>
+          <h3>{habit.positive ? 'progress: ' + this.state.progress_count : null}</h3>
+        </div>
+
+        <div className="habit-pie">
+          {this.generatePie()}
+        </div>
+
       </div>
     );
   }
@@ -126,3 +124,7 @@ const mapDispatchToProps = {
 }
 
 export default connect(null, mapDispatchToProps)(Habit)
+
+// <p>first day: <Moment fromNow>{habit.firstDay}</Moment> </p>
+
+// <ProgressBar frequency={habit.maxFrequency} progress_count={this.state.progress_count}/>

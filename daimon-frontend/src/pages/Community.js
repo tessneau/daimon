@@ -37,10 +37,9 @@ class Community extends Component {
   renderHeader = () => {
     if (this.props.username && this.props.categories[0]) {
       return (
-        <div>
+        <>
         <div className="header">
-        <p>welcome {this.props.username}</p>
-        <label> Categories
+        <label> <p>Categories</p>
           <select className="custom-select" value={this.state.categoryID} onChange={this.handleChange}>
           {this.generateCategoriesSelect()}
           </select>
@@ -50,7 +49,7 @@ class Community extends Component {
         this.props.categories[0] ? this.findCurrentCategory() : null
       }
       <PostsContainer />
-      </div>
+      </>
         )
     } else {
       return <h1>Loading...</h1>

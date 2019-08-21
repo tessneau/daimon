@@ -39,13 +39,13 @@ class Post extends Component {
         <p className="title">{this.props.title}</p>
         <p className="content">{this.props.content}</p>
         <div className="footer">
-          <div className="branch-container">
-            <p>
-            <button className="branch-btn" onClick={this.handleBranchClick}>{this.state.branched ? faviconX : favicon }  {this.props.branch_count}</button>
-            </p>
-          </div>
-          <div className="pin-container">
-            <button className="pin-btn" onClick={this.handlePinClick}>{this.state.pinned ? faviconX : faviconClip}</button>
+          <div className="buttons">
+            <div className="branch-container">
+              <button className="branch-btn" onClick={this.handleBranchClick}>{this.state.branched ? faviconX : favicon }  {this.props.branch_count}</button>
+            </div>
+            <div className="pin-container">
+              <button className="pin-btn" onClick={this.handlePinClick}>{this.state.pinned ? faviconX : faviconClip}</button>
+            </div>
           </div>
           <div className="author-container">
             <h4>Author</h4>
