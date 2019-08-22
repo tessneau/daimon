@@ -72,7 +72,6 @@ class Habit extends Component {
         />
         <VictoryAnimation duration={1000} data={this.state}>
           {(newProps) => {
-            console.log(newProps)
             return (
               <>
               <VictoryLabel

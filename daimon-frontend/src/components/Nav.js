@@ -8,11 +8,14 @@ class Nav extends Component {
   componentDidMount() {
     if (localStorage.getItem("token")) {
     this.props.getCurrentUser(localStorage.getItem("token"))
-  }}
+  } else if (this.props.location.pathname !== "/daimon/login" && this.props.location.pathname !== "/daimon/signup" && this.props.location.pathname !== "/") {
+    console.log(this.props)
+    this.props.history.push('/daimon/login')
+    }}
 
   onLogout = () => {
     this.props.logOut()
-    this.props.history.push('/login')
+    this.props.history.push('/daimon/login')
   }
 
   render() {
@@ -21,7 +24,7 @@ class Nav extends Component {
         {
           this.props.currentUser.id ? (
             <div className="nav-link-container">
-              <NavLink className="nav-link" activeClassName="selected" to="/daimon/profile">Profile</NavLink>
+              <NavLink className="nav-link" activeClassName="selected" to="/daimon/profile">Feed</NavLink>
               <NavLink className="nav-link" activeClassName="selected" to="/daimon/habits">Habits</NavLink>
               <NavLink className="nav-link" activeClassName="selected" to="/daimon/community">Community</NavLink>
               <NavLink className="nav-link" activeClassName="selected" onClick={this.onLogout} exact to='/'>Logout</NavLink>

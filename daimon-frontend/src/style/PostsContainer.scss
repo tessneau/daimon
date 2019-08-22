@@ -1,7 +1,10 @@
 .posts-container {
-  // position: relative;
+  position: relative;
   width: 90%;
-  // overflow: auto;
+  overflow: auto;
+  // background: blue;
+  padding:30px 0px;
+  border: 2px dotted #DD4132;
   // word-wrap: break-word;
   display: flex;
   flex-direction: column;

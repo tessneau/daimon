@@ -32,15 +32,13 @@
       font-weight: bold;
       color: white;
       font-size: 20px;
-      background: black;
-      border: 0px;
-      // border: 2px solid red;
+      background: #FE840E;
+      border: 2px solid #FE840E;
       border-radius: 5px;
-      // box-shadow: 4px 4px red;
+      margin-right: 50px;
       cursor: pointer;
       &:hover {
-        // background: chocolate;
-        color: white;
+        color: black;
       }
     }
 
@@ -49,10 +47,8 @@
       font-size: 20px;
       color: white;
       background: #FE840E;
-      border: 0px;
-      // border: 2px solid grey;
+      border: 2px solid #FE840E;
       border-radius: 5px;
-      // box-shadow: 4px 4px #888888;
       cursor: pointer;
       &:hover {
         color: black;

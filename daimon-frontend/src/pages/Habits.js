@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Habit from '../components/Habit';
 import HabitModal from '../components/HabitModal'
 import '../style/Habits.scss';
+import '../style/HabitModal.scss';
 
 class Habits extends Component {
 

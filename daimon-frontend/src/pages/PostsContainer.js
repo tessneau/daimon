@@ -6,10 +6,6 @@ import '../style/PostsContainer.scss'
 
 class PostsContainer extends Component {
 
-  // componentDidMount() {
-  //   this.props.getPosts(this.props.categoryID)
-  // }
-
   generateCategoryPosts = () => {
     if (this.props.category && this.props.pinned_posts) {
       return this.props.category.posts.map(post => {
