@@ -1,12 +1,17 @@
 .habits-container {
-  height: 400vw;
+  height: 100%;
+  padding-top: 100px;
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   align-items: center;
+
+  .btn {
+    margin-bottom: 50px;
+  }
 
   .habits-ul {
     width: 80%;
-
+    padding-bottom: 300px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 4em;

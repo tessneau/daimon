@@ -8,11 +8,10 @@ class Profile extends Component {
   render() {
     return (
       <div className="profile-container">
-      <h1>PROFILE</h1>
-      <h3>Username: {this.props.username}</h3>
-      <img src={this.props.avatar_img} alt="avatar"/>
-      
-      <PinnedPostsContainer pinned_posts={this.props.pinned_posts}/>
+      <h1>FEED</h1>
+      <h3>Welcome {this.props.username}</h3>
+      <img src={this.props.avatar_img} height='240' width='240'/>
+      <PinnedPostsContainer />
       </div>
     );
   }
@@ -20,11 +19,9 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     username: state.currentUser.username,
     avatar_img: state.currentUser.avatar_img,
-    pinned_posts: state.currentUser.pinned_posts
   }
 }
 

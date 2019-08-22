@@ -6,20 +6,14 @@ import '../style/PostsContainer.scss'
 
 class PostsContainer extends Component {
 
-  // componentDidMount() {
-  //   this.props.getPosts(this.props.categoryID)
-  // }
-
   generateCategoryPosts = () => {
     if (this.props.category && this.props.pinned_posts) {
-      return (
-        this.props.category.posts.map(post => {
+      return this.props.category.posts.map(post => {
           if (this.props.pinned_posts.find(pinned_post => post.id === pinned_post.id))
           {return <Post key={post.id} {...post} pinned={true} />}
           else
           {return <Post key={post.id} {...post} pinned={false} />}
           })
-        )
     } else {
       return <h1>Loading the category...</h1>
     }
@@ -38,12 +32,8 @@ class PostsContainer extends Component {
 const mapStateToProps = state => {
   return {
     category: state.currentCategory,
-    pinned_posts: state.currentUser.pinned_posts
+    pinned_posts: state.currentUser.pinned_posts,
   }
 }
-
-// const mapDispatchToProps = {
-//   getPosts: getCurrentCategoryPosts
-// }
 
 export default connect(mapStateToProps)(PostsContainer)

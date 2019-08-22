@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/categories/:category_id/posts', to:'posts#category_posts'
   get '/users/:user_id/pinned_posts', to:'posts#pinned_posts_index'
   post '/posts/:id/pins', to: 'posts#pin'
+  post '/posts/:id/branches', to: 'posts#branch'
+  patch '/user_habits/:id', to: 'user_habits#progress'
+  # get '/users/:user_id/habits', to: 'habits#user_habits'
   # post '/users/:user_id/pinned_posts', to:'posts#pin'
   # get '/users/:user_id/posts', to:'posts#user_posts'
   resources :habit_categories
@@ -13,12 +16,7 @@ Rails.application.routes.draw do
   resources :pins
   resources :user_habits
   resources :categories
-  resources :posts do
-    member do
-      post :branch
-      # post :pins
-    end
-  end
+  resources :posts
   resources :habits
   resources :users
 

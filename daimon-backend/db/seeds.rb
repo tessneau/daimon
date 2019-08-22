@@ -16,11 +16,15 @@ Habit.destroy_all
 Category.destroy_all
 
 #################### users ####################
-40.times do
-  User.create(username: Faker::TvShows::TwinPeaks.character.split(' ').join(''), password: "123", avatar_img: Faker::Fillmurray.image(width: 200, height: 200) )
+20.times do
+  User.create(username: Faker::TvShows::TwinPeaks.character.split(' ').join(''), password: "123", avatar_img: 'https://www.tinygraphs.com/labs/squares/random?theme=duskfalling&numcolors=4' )
+  User.create(username: Faker::TvShows::TwinPeaks.character.split(' ').join(''), password: "123", avatar_img: 'https://www.tinygraphs.com/labs/squares/random?theme=summerwarmth&numcolors=4' )
+  User.create(username: Faker::TvShows::TwinPeaks.character.split(' ').join(''), password: "123", avatar_img: 'https://www.tinygraphs.com/labs/squares/random?theme=heatwave&numcolors=4' )
 end
 
 User.create(username: 'blacksheep', password: '123', avatar_img: 'https://www.blacksheepon39th.com/images/blacksheep.png')
+User.create(username: 'pinksheep', password: '123', avatar_img: 'https://pbs.twimg.com/profile_images/435911390386081795/A12N-SRc_400x400.jpeg')
+User.create(username: 'yellowsheep', password: '123', avatar_img: 'http://stoppress.co.nz/media/VERSIONS/screen_shot_2016-02-17_at_1.34.51_pm_1200x1200.png')
 
 #################### habits ####################
 
@@ -98,15 +102,15 @@ HabitCategory.create(habit: dont_drink, category: self_confidence)
 HabitCategory.create(habit: dont_drink, category: addiction)
 
 #################### Posts ##################################
-100.times do
-  Post.create(title: Faker::TvShows::TwinPeaks.quote, content: Faker::Lorem.paragraph, category: Category.all.sample, author: User.all.sample)
+200.times do
+  Post.create(title: Faker::TvShows::TwinPeaks.quote, content: Faker::Lorem.paragraph(sentence_count: 20), category: Category.all.sample, author: User.all.sample)
 
   Comment.create(content: Faker::GreekPhilosophers.quote, post: Post.all.sample, user: User.all.sample)
 
   Branch.create(user: User.all.sample, post: Post.all.sample)
 end
 
-40.times do
+100.times do
   Pin.create(user: User.all.sample, post: Post.all.sample)
 end
 
