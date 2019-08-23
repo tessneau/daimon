@@ -1,0 +1,54 @@
+.post-container {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .title {
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    input[type=text] {
+      padding: 5px 200px;
+      font-weight: bold;
+      color: maroon;
+    }
+  }
+
+  .content {
+    margin-top: 20px;
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    textarea[type=text] {
+      text-align: left;
+      height: 10vh;
+      width: 70vw;
+      // padding: 40px 400px;
+      font-weight: bold;
+      color: maroon;
+    }
+  }
+
+  .submit-btn {
+    margin-left: 45%;
+    margin-top: 20px;
+    background: transparent;
+    color: #F0EAD6;
+    border: 0px;
+    font-size: 17px;
+    background: #FE840E;
+    border: 2px solid #FE840E;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
+  }
+}
