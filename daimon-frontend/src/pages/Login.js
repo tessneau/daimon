@@ -42,7 +42,7 @@ class Login extends Component {
       </label>
         <input type="text" value={username} onChange={this.handleChange} name="username" required/>
          <label htmlFor="password"><b>Password</b></label>
-        <input type="text" value={password} onChange={this.handleChange} name="password" required/>
+        <input type="password" value={password} onChange={this.handleChange} name="password" required/>
         <input className="form-btn login" type="submit" value="Enter" />
       </form>
       <a className="anch login" href='./daimon/signup' onClick={this.handleClick}>New Here?</a>

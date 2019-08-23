@@ -2,17 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCategories, getCurrentCategoryPosts } from '../actions/categoryActions';
 import '../style/Community.scss';
-import PostsContainer from './PostsContainer'
+import PostsContainer from './PostsContainer';
+import PostForm from '../components/PostForm';
 
 class Community extends Component {
 
   state = {
-    categoryID: 1
+    categoryID: 1,
+    show: false
   }
 
   componentDidMount() {
     this.props.getCategories()
     this.props.getPosts(this.state.categoryID)
+  }
+
+  handleFormPop = () => {
+    this.setState({show: !this.state.show})
   }
 
   generateCategoriesSelect = () => {
@@ -49,6 +55,8 @@ class Community extends Component {
         this.props.categories[0] ? this.findCurrentCategory() : null
       }
       <PostsContainer />
+      <button className="btn form-pop" onClick={this.handleFormPop}>++++</button>
+      {this.state.show ? <PostForm category_id={this.state.categoryID} handleFormPop={this.handleFormPop}/> : null}
       </>
         )
     } else {
@@ -62,7 +70,6 @@ class Community extends Component {
       <h1>COMMUNITY</h1>
 
       {this.renderHeader()}
-
       </div>
     );
   }
