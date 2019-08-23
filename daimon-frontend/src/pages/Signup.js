@@ -11,7 +11,7 @@ class Signup extends Component {
 
   componentDidMount() {
     if (localStorage.token) {
-      this.props.history.push("/profile")
+      this.props.history.push("/daimon/profile")
     }
   }
 
@@ -20,7 +20,7 @@ class Signup extends Component {
     const signUpInformation = this.state
     this.props.signUp(signUpInformation)
       .then(()=> {
-        this.props.history.push("/profile")
+        this.props.history.push("/daimon/profile")
       })
   }
 
@@ -29,7 +29,7 @@ class Signup extends Component {
   }
 
   handleClick = () => {
-    this.props.history.push("/login")
+    this.props.history.push("/daimon/login")
   }
 
   render() {
@@ -41,7 +41,7 @@ class Signup extends Component {
       </label>
         <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
          <label htmlFor="password"><b>Password</b></label>
-        <input type="text" value={this.state.password} onChange={this.handleChange} name="password" />
+        <input type="password" value={this.state.password} onChange={this.handleChange} name="password" />
         <input className="form-btn signup" type="submit" value="Enter" />
       </form>
       <a className="anch signup" href='./daimon/login' onClick={this.handleClick}>Been Here Before?</a>
