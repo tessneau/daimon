@@ -11,6 +11,16 @@ class PostsController < ApplicationController
     render json: @post
   end
 
+  def create
+    post = Post.new(post_params)
+    post.user_id = super_current_user.id
+    if post.save
+      render json: post.category
+    else
+      render json: {message: 'post create error'}, status: :unauthorized
+    end
+  end
+
   def category_posts
     category = Category.find(params[:category_id])
     posts = category.posts
@@ -32,7 +42,7 @@ class PostsController < ApplicationController
         branch.destroy
         render json: @post
       else
-        render json: { errors: branch.errors.full_messages }, stats: :unauthorized
+        render json: { errors: branch.errors.full_messages }, status: :unauthorized
       end
     end
   end
@@ -46,7 +56,7 @@ class PostsController < ApplicationController
       if pin
         pin.destroy
       else
-        render json: { errors: pin.errors.full_messages }, stats: :unauthorized
+        render json: { errors: pin.errors.full_messages }, status: :unauthorized
       end
     end
   end
@@ -54,7 +64,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:title, :content)
+    params.require(:post).permit(:title, :content, :category_id)
   end
 
   def find_post

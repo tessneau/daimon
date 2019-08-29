@@ -14,7 +14,7 @@ class Community extends Component {
 
   componentDidMount() {
     this.props.getCategories()
-    this.props.getPosts(this.state.categoryID)
+    // this.props.getPosts(this.state.categoryID)
   }
 
   handleFormPop = () => {
@@ -28,11 +28,15 @@ class Community extends Component {
 
   findCurrentCategory = () => {
     const currentCategory = this.props.categories.find(category => category.id === this.state.categoryID)
+    // const currentCategory = this.props.category
     return (
+      <>
       <div className="category-info">
       <h1 className="name">{currentCategory.name}</h1>
       <h3>{currentCategory.description}</h3>
       </div>
+      <PostsContainer category={currentCategory}/>
+      </>
       )
   }
 
@@ -54,7 +58,6 @@ class Community extends Component {
       {
         this.props.categories[0] ? this.findCurrentCategory() : null
       }
-      <PostsContainer />
       <button className="btn form-pop" onClick={this.handleFormPop}>++++</button>
       {this.state.show ? <PostForm category_id={this.state.categoryID} handleFormPop={this.handleFormPop}/> : null}
       </>
@@ -65,6 +68,7 @@ class Community extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="community-container">
       <h1>COMMUNITY</h1>
@@ -79,7 +83,10 @@ class Community extends Component {
 const mapStateToProps = state => {
   return {
     username: state.currentUser.username,
-    categories: state.categories
+    categories: state.categories,
+    category: state.currentCategory,
+    userPosts: state.currentUser.posts,
+    categoryPosts: state.currentCategory.posts
   }
 }
 

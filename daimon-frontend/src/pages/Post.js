@@ -34,27 +34,32 @@ class Post extends Component {
     const favicon = <FontAwesomeIcon icon={faPagelines} />
     const faviconX = <FontAwesomeIcon icon={faTimes} />
     const faviconClip = <FontAwesomeIcon icon={faPaperclip} />
-    return (
-      <div className="post-item">
-        <p className="title">{this.props.title}</p>
-        <p className="content">{this.props.content}</p>
-        <div className="footer">
-          <div className="buttons">
-            <div className="branch-container">
-              <button className="branch-btn" onClick={this.handleBranchClick}>{this.state.branched ? faviconX : favicon }  {this.props.branch_count}</button>
+
+    if (this.props.author) {
+      return (
+        <div className="post-item">
+          <p className="title">{this.props.title}</p>
+          <p className="content">{this.props.content}</p>
+          <div className="footer">
+            <div className="buttons">
+              <div className="branch-container">
+                <button className="branch-btn" onClick={this.handleBranchClick}>{this.state.branched ? faviconX : favicon }  {this.props.branch_count}</button>
+              </div>
+              <div className="pin-container">
+                <button className="pin-btn" onClick={this.handlePinClick}>{this.state.pinned ? faviconX : faviconClip}</button>
+              </div>
             </div>
-            <div className="pin-container">
-              <button className="pin-btn" onClick={this.handlePinClick}>{this.state.pinned ? faviconX : faviconClip}</button>
+            <div className="author-container">
+              <h4>Author</h4>
+              <p>{this.props.author.username}</p>
+              <img className="avatar" src={this.props.author.avatar_img} alt="author" />
             </div>
-          </div>
-          <div className="author-container">
-            <h4>Author</h4>
-            <p>{this.props.author.username}</p>
-            <img className="avatar" src={this.props.author.avatar_img} alt="author" />
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <h1>Loading</h1>
+    }
   }
 
 }

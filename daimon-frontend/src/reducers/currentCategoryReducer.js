@@ -1,7 +1,7 @@
 const initialState = {
   id: null,
   name: "",
-  habits: [],
+  description: "",
   posts: [],
   loading: true
 };
@@ -9,7 +9,11 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
 
+    case "GET_CATEGORIES_SUCCESS":
+      return { ...action.categories[0] };
+
     case "GET_CURRENT_CATEGORY_POSTS_START":
+    debugger
       return { ...state, loading: true };
 
     case "GET_CURRENT_CATEGORY_POSTS_SUCCESS":
@@ -30,6 +34,9 @@ export default (state = initialState, action) => {
     case "CREATE_BRANCH_FAILURE":
       console.log('branch failure')
       return state;
+
+    case "CREATE_POST_SUCCESS":
+      return { ...action.category, loading: false };
 
     default:
       return state;

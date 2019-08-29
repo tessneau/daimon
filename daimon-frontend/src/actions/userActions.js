@@ -68,6 +68,26 @@ export const signUp = (signUpInformation={}) => dispatch => {
   })
 }
 
+export const createPost = (postInformation={}) => dispatch => {
+  return fetch('http://localhost:3000/posts', {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json',
+      'Accept': 'application/json',
+      'Authorization': localStorage.token
+    },
+    body: JSON.stringify({post: postInformation})
+    })
+    .then(res => res.json())
+    .then(category => {
+      dispatch({type: "CREATE_POST_SUCCESS", category: category})
+      })
+    .catch(error => {
+      console.log('create post failure')
+      // dispatch({ type: 'SIGNUP_REQUEST_FAILURE', error: error })
+    })
+}
+
 export const logOut = () => dispatch => {
   localStorage.clear()
   dispatch({ type: 'LOGOUT' })

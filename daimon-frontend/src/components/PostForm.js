@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { createPost } from '../actions/userActions';
+import { createPost } from '../actions/userActions';
 import '../style/PostForm.scss'
 
 class HabitModal extends Component {
@@ -17,12 +17,11 @@ class HabitModal extends Component {
 
   handleChange = (e) => {
       this.setState({ [e.target.name]: e.target.value })
-      console.log(this.state)
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // this.props.createPost(this.state)
+    this.props.createPost(this.state)
     this.props.handleFormPop()
   }
 
@@ -42,15 +41,9 @@ class HabitModal extends Component {
   }
 
 }
-const mapStateToProps = state => {
-  return {
-    posts: state.currentUser.posts,
-    category: state.currentCategory
-  }
-}
 
 const mapDispatchToProps = {
-  // createHabit: createHabit,
+  createPost: createPost,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HabitModal)
+export default connect(null, mapDispatchToProps)(HabitModal)

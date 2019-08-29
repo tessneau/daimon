@@ -1,17 +1,20 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :branch_count, :is_pinned_by, :is_branched_by
-  has_one :author
+  attributes :id, :title, :content, :branch_count, :is_pinned_by, :is_branched_by, :author
 
   def branch_count
     object.branches.length
   end
 
   def is_branched_by
-    object.branchers.map { |brancher| brancher.id }
+    object.branches.map { |branch| branch.user_id }
   end
 
   def is_pinned_by
-    object.pinners.map {|pinner| pinner.id}
+    object.pins.map {|pin| pin.user_id}
+  end
+
+  def author
+    object.author
   end
 
 end
