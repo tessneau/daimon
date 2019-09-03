@@ -14,6 +14,6 @@ class User < ApplicationRecord
   has_many :branches, dependent: :destroy
   has_many :branched_posts, through: :branches, source: :post
 
-  validates :username, :password, :avatar_img, presence:true
+  validates :username, :password, presence:true
   validates :username, uniqueness: true
 end

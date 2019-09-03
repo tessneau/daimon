@@ -5,7 +5,7 @@ const categoriesReducer = (state = initialState, action) => {
     case "GET_CATEGORIES_SUCCESS":
       return action.categories
     default:
-      return state;
+      return state
   }
 }
 

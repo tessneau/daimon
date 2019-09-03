@@ -1,6 +1,5 @@
 class CategorySerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :posts
-  # has_many :posts
 
   def posts
     object.posts.map {|post| {

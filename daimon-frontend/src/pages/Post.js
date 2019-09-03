@@ -50,7 +50,7 @@ class Post extends Component {
               </div>
             </div>
             <div className="author-container">
-              <h4>Author</h4>
+              <h4>Author </h4>
               <p>{this.props.author.username}</p>
               <img className="avatar" src={this.props.author.avatar_img} alt="author" />
             </div>
@@ -61,7 +61,6 @@ class Post extends Component {
       return <h1>Loading</h1>
     }
   }
-
 }
 
 const mapStateToProps = state => {

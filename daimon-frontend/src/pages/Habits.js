@@ -27,7 +27,7 @@ class Habits extends Component {
     return (
       <div className="habits-container">
       <h1>HABITS</h1>
-      <button className="btn" onClick={this.handleModal}>++++</button>
+      <button className="btn" onClick={this.handleModal}>+</button>
       {this.state.show ? <HabitModal show={this.state.show} handleModal={this.handleModal} /> : null}
         <div className="habits-ul">
           {this.generateHabits()}

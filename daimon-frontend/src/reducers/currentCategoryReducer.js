@@ -3,7 +3,7 @@ const initialState = {
   name: "",
   description: "",
   posts: [],
-  loading: true
+  loading: false
 };
 
 export default (state = initialState, action) => {
@@ -12,19 +12,8 @@ export default (state = initialState, action) => {
     case "GET_CATEGORIES_SUCCESS":
       return { ...action.categories[0] };
 
-    case "GET_CURRENT_CATEGORY_POSTS_START":
-    debugger
-      return { ...state, loading: true };
-
-    case "GET_CURRENT_CATEGORY_POSTS_SUCCESS":
-      return {
-         ...state,
-         posts: action.posts,
-         loading: false
-       };
-
-    case "GET_CURRENT_CATEGORY_POSTS_FAILURE":
-      return { ...state, loading: false };
+    case "SET_CURRENT_CATEGORY_SUCCESS":
+      return { ...action.category, loading: false };
 
     case "CREATE_BRANCH_SUCCESS":
       const index = state.posts.findIndex(post => post.id === action.post.id)

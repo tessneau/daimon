@@ -13,6 +13,7 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case 'SAVE_USER_TO_STATE':
+    debugger
       let userObj = action.payload.user
       return {
         ...state,

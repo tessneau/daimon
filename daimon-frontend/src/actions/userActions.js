@@ -37,7 +37,7 @@ export const getCurrentUser = (token) => {
     })
     .then(res => res.json())
     .then(response =>{
-      // dispatch({ type: 'LOGIN_REQUEST_SUCCESS' })
+      dispatch({ type: 'LOGIN_REQUEST_SUCCESS' })
       dispatch({type: "SAVE_USER_TO_STATE", payload: response})
     })
   }

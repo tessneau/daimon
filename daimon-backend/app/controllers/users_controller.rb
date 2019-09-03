@@ -14,14 +14,14 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.valid?
-      render json: {user: user, jwt: encode_token(user)}, status: :accepted
+      user.update(avatar_img: 'https://www.tinygraphs.com/labs/squares/random?theme=summerwarmth&numcolors=4')
+      render json: {user: UserSerializer.new(user), jwt: encode_token(user)}, status: :accepted
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def profile
-    # byebug
     render json: {user: UserSerializer.new(super_current_user)}
   end
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCategories, getCurrentCategoryPosts } from '../actions/categoryActions';
+import { getCategories, setCurrentCategory } from '../actions/categoryActions';
 import '../style/Community.scss';
 import PostsContainer from './PostsContainer';
 import PostForm from '../components/PostForm';
@@ -8,13 +8,12 @@ import PostForm from '../components/PostForm';
 class Community extends Component {
 
   state = {
-    categoryID: 1,
+    categoryID: 14,
     show: false
   }
 
   componentDidMount() {
     this.props.getCategories()
-    // this.props.getPosts(this.state.categoryID)
   }
 
   handleFormPop = () => {
@@ -27,21 +26,24 @@ class Community extends Component {
     }}
 
   findCurrentCategory = () => {
-    const currentCategory = this.props.categories.find(category => category.id === this.state.categoryID)
-    // const currentCategory = this.props.category
+    const currentCategory = this.props.category
     return (
       <>
       <div className="category-info">
       <h1 className="name">{currentCategory.name}</h1>
       <h3>{currentCategory.description}</h3>
       </div>
-      <PostsContainer category={currentCategory}/>
+      <PostsContainer />
       </>
       )
   }
 
   handleChange = (e) => {
-    this.setState({categoryID: +e.target.value},() => this.props.getPosts(this.state.categoryID));
+    let category
+    this.setState({categoryID: +e.target.value}, () => {
+      category = this.props.categories.find(category => category.id === this.state.categoryID)
+      this.props.setCategory(category)
+      })
   }
 
   renderHeader = () => {
@@ -58,7 +60,7 @@ class Community extends Component {
       {
         this.props.categories[0] ? this.findCurrentCategory() : null
       }
-      <button className="btn form-pop" onClick={this.handleFormPop}>++++</button>
+      <button className="btn form-pop" onClick={this.handleFormPop}>new post</button>
       {this.state.show ? <PostForm category_id={this.state.categoryID} handleFormPop={this.handleFormPop}/> : null}
       </>
         )
@@ -68,11 +70,9 @@ class Community extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="community-container">
       <h1>COMMUNITY</h1>
-
       {this.renderHeader()}
       </div>
     );
@@ -85,17 +85,13 @@ const mapStateToProps = state => {
     username: state.currentUser.username,
     categories: state.categories,
     category: state.currentCategory,
-    userPosts: state.currentUser.posts,
-    categoryPosts: state.currentCategory.posts
+    userPosts: state.currentUser.posts
   }
 }
 
 const mapDispatchToProps = {
   getCategories: getCategories,
-  getPosts: getCurrentCategoryPosts
+  setCategory: setCurrentCategory
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Community)
-
-
-// <option value={0} disabled>Choose a Category</option>
