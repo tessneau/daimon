@@ -79,8 +79,9 @@ export const createPost = (postInformation={}) => dispatch => {
     body: JSON.stringify({post: postInformation})
     })
     .then(res => res.json())
-    .then(category => {
-      dispatch({type: "CREATE_POST_SUCCESS", category: category})
+    .then(data => {
+      dispatch({type: "CREATE_POST_SUCCESS", category: data.category})
+      dispatch({type: "SAVE_POST_TO_USER", post: data.post})
       })
     .catch(error => {
       console.log('create post failure')

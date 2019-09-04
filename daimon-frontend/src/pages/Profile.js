@@ -19,7 +19,6 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     username: state.currentUser.username,
     avatar_img: state.currentUser.avatar_img,

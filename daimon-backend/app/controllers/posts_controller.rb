@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     post.user_id = super_current_user.id
     if post.save
-      render json: post.category
+      render json: {category: CategorySerializer.new(post.category), post: PostSerializer.new(post)}
     else
       render json: {message: 'post create error'}, status: :unauthorized
     end

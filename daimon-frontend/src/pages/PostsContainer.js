@@ -6,7 +6,7 @@ import '../style/PostsContainer.scss'
 class PostsContainer extends Component {
 
   generateCategoryPosts = () => {
-    if (this.props.category) {
+    if (this.props.category && this.props.category.posts) {
       return this.props.category.posts.map(post => {
           if (this.props.pinned_posts.find(pinned_post => post.id === pinned_post.id))
           {return <Post key={post.id} {...post} pinned={true} />}

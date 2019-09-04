@@ -43,6 +43,9 @@ class PinnedPost extends Component {
         <p className="title">{this.props.title}</p>
         <p className="content">{this.props.content}</p>
         <div className="footer">
+          <div className="category">
+          <p>{this.props.category.name}</p>
+          </div>
           <div className="branch-container">
             <p>
             <button className="branch-btn" onClick={this.handleBranchClick}>{this.state.branched ? faviconX : favicon} {this.state.branch_count}</button>

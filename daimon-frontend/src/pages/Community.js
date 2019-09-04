@@ -7,13 +7,13 @@ import PostForm from '../components/PostForm';
 
 class Community extends Component {
 
-  state = {
-    categoryID: 14,
-    show: false
-  }
-
   componentDidMount() {
     this.props.getCategories()
+  }
+
+  state = {
+    categoryID: 1,
+    show: false
   }
 
   handleFormPop = () => {
@@ -70,6 +70,7 @@ class Community extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="community-container">
       <h1>COMMUNITY</h1>

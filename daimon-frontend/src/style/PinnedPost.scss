@@ -3,49 +3,59 @@
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    border: 2px solid white;
+    border: 2px solid #F0EAD6;
     margin: 20px 0px;
-    padding: 20px 0px;
-    color: white;
+    padding: 20px 0px 0px 0px;
+    color: #F0EAD6;
 
     .footer {
+      margin-top: 10%;
+      font-size: 14px;
+      // border-top: 2px solid #FE9A39;
+      background: #FE9A39;
       align-self: flex-end;
-      width: 40%;
+      width: 100%;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 3fr 1fr 1fr;
       justify-items: center;
       align-items: center;
+
+      .category {
+        padding-left: 10%;
+        justify-self: start;
+        color: #F0EAD6;
+      }
 
       .branch-btn {
 
         font-weight: bold;
-        color: white;
+        color: #F0EAD6;
         font-size: 20px;
-        background: #DD4132;
-        border: 2px solid #DD4132;
+        background: #FE9A39;
+        border: 2px solid #FE9A39;
         border-radius: 5px;
         cursor: pointer;
         &:hover {
-          color: white;
-          background: #FE9A39;
-          border: 2px solid #FE9A39;
+          color: #F0EAD6;
+          background: #DD4132;
+          border: 2px solid #DD4132;
         }
       }
 
       .pin-btn {
         font-weight: bold;
         font-size: 20px;
-        color: white;
-        background: #DD4132;
+        color: #F0EAD6;
+        background: #FE9A39;
         border: 0px;
         // border: 2px solid #FE9A39;
         border-radius: 5px;
         // box-shadow: 2px 2px #FE9A39;
         cursor: pointer;
         &:hover {
-          color: white;
-          background: #FE9A39;
-          border: 2px solid #FE9A39;
+          color: #F0EAD6;
+          background: #DD4132;
+          border: 2px solid #DD4132;
         }
       }
 

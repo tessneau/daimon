@@ -13,7 +13,6 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case 'SAVE_USER_TO_STATE':
-    debugger
       let userObj = action.payload.user
       return {
         ...state,
@@ -26,6 +25,11 @@ export default (state = initialState, action) => {
         branched_posts: userObj.branched_posts,
         token: action.payload.jwt
       }
+
+
+    /////////// POST ///////////////////
+    case "SAVE_POST_TO_USER":
+    return {...state, posts: [ ...state.posts, action.post]}
 
 
     /////////// HABIT ///////////////////

@@ -11,7 +11,7 @@ class Login extends Component {
 
   componentDidMount() {
     if (localStorage.token) {
-      this.props.history.push("/daimon/profile")
+      this.props.history.push("/daimon/habits")
     }
   }
 
@@ -20,7 +20,7 @@ class Login extends Component {
     const loginInformation = this.state
     this.props.logIn(loginInformation)
       .then(()=> {
-        this.props.history.push("/daimon/profile")
+        this.props.history.push("/daimon/habits")
       })
   }
 

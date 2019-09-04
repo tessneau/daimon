@@ -13,7 +13,8 @@ export default (state = initialState, action) => {
       return { ...action.categories[0] };
 
     case "SET_CURRENT_CATEGORY_SUCCESS":
-      return { ...action.category, loading: false };
+      const sortedPosts = action.category.posts.sort((a,b) => (b.branch_count - a.branch_count))
+      return { ...action.category, posts: sortedPosts, loading: false };
 
     case "CREATE_BRANCH_SUCCESS":
       const index = state.posts.findIndex(post => post.id === action.post.id)
@@ -25,7 +26,8 @@ export default (state = initialState, action) => {
       return state;
 
     case "CREATE_POST_SUCCESS":
-      return { ...action.category, loading: false };
+      const sortedPostsCreate = action.category.posts.sort((a,b) => (b.branch_count - a.branch_count))
+      return { ...action.category, posts: sortedPosts, loading: false };
 
     default:
       return state;

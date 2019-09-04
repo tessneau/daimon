@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :branch_count, :is_pinned_by, :is_branched_by, :author
+  attributes :id, :title, :content, :branch_count, :is_pinned_by, :is_branched_by, :author, :category
 
   def branch_count
     object.branches.length
@@ -15,6 +15,10 @@ class PostSerializer < ActiveModel::Serializer
 
   def author
     object.author
+  end
+
+  def category
+    object.category
   end
 
 end
