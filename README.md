@@ -1,10 +1,10 @@
-# Daimon 
+# 🌬 Daimon 🌬
 
 A community driven habit-tracking app for honest professionals.
 
 ![app runthrough gif](https://giant.gfycat.com/RawTiredElk.gif)
 
-## Installation
+## 👣 Installation
 
  #### 1. API Backend
 1. Enter into the backend folder with `cd daimon-backend`
@@ -19,7 +19,7 @@ A community driven habit-tracking app for honest professionals.
 3. Enter `npm start` and follow the steps given to run the server in your browser
       
       
-## Usage
+## 🏹Usage
 
 * A user can login or sign up
 * A user can then browse through the web app with a navigation bar
@@ -31,7 +31,7 @@ A community driven habit-tracking app for honest professionals.
 * On the Profile page, a filter button is available to see the posts that the user has created and those they've pinned.
 * A user can logout through the navigation bar
       
-## Built With
+## 📦Built With
 
 * [Victory](https://github.com/FormidableLabs/victory) - Interactive data visualizations 
 * [ReactJS](https://github.com/facebook/react) - Frontend Framework
@@ -43,7 +43,7 @@ A community driven habit-tracking app for honest professionals.
 * [Faker](https://github.com/faker-ruby/faker) - Fake Twin Peaks and Lorem Ipsum data
 * [TinyGraphs](https://github.com/taironas/tinygraphs) - Avatar placeholders
 
-## Future Tasks
+## 🛒Future Tasks
 
 - [x] Refactor Redux and Ruby files
 - [ ] Add social media sharing features 
@@ -51,11 +51,11 @@ A community driven habit-tracking app for honest professionals.
 - [ ] Add a feature to reflect HabitCategories joint model
 - [ ] Replace AMS with [fastJSON](https://github.com/Netflix/fast_jsonapi) for speed
 
-## Authors
+## 🦕Authors
 
 [Tess Neau](https://github.com/tessneau) - tessneau@gmail.com
 
-## Acknowledgements
+## 🙏Acknowledgements
 
 * Flatiron School, [Mazen Al Swar](https://github.com/mazenswar), and [Leizl Samano](https://github.com/lsamano)
 * FormidableLabs for having great documentation on Victory
