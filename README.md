@@ -5,17 +5,18 @@ A community driven habit-tracking app for honest professionals.
 ![app runthrough gif](https://giant.gfycat.com/RawTiredElk.gif)
 
 ## Installation
-1. API Backend
-      1. Enter into the backend folder with `cd daimon-backend`
-      2. Run `bundle install` in order to install the necessary gems
-      3. Enter `rails db:migrate && rails db:seed` in order to set up the tables and seed the wirtten data
-      4. (optional) Check that the data seeded by entering `rails c`, then `User.all` once you've entered the console mode. If the results aren't nil then the data has succesfully seeded. If not, contact me.
-      5. Finally, enter `rails s` and copy the resulting url listed as `Listening on [url]` (often it will be localhost:3000) and paxste the url into your browser. The available end paths are users, posts, habits, categories 
 
-2. Frontend
-      1. Make sure you are running a web server with the backend API (step 2) and open a new tab in the directory
-      2. From the home folder, enter into the frontend folder with `cd daimon-frontend`
-      3. Enter `npm start` and the app will run in the browser
+ #### 1. API Backend
+1. Enter into the backend folder with `cd daimon-backend`
+2. Run `bundle install` in order to install the necessary gems
+3. Enter `rails db:migrate && rails db:seed` in order to set up the tables and seed the wirtten data
+4. (optional) Check that the data seeded by entering `rails c`, then `User.all` once you've entered the console mode. If the results aren't nil then the data has succesfully seeded. If not, contact me.
+5. Finally, enter `rails s` and copy the resulting url listed as `Listening on [url]` (often it will be localhost:3000) and paxste the url into your browser. The available end paths are users, posts, habits, categories 
+
+#### 2. Frontend
+1. Make sure you are running a web server with the backend API (step 2) and open a new tab in the directory
+2. From the home folder, enter into the frontend folder with `cd daimon-frontend`
+3. Enter `npm start` and follow the steps given to run the server in your browser
       
       
 ## Usage
@@ -41,6 +42,14 @@ A community driven habit-tracking app for honest professionals.
 * [JWT for Ruby](https://github.com/jwt/ruby-jwt) - JSON Web Token for Login/Signup encryption
 * [Faker](https://github.com/faker-ruby/faker) - Fake Twin Peaks and Lorem Ipsum data
 * [TinyGraphs](https://github.com/taironas/tinygraphs) - Avatar placeholders
+
+## Future Tasks
+
+- [x] Refactor Redux and Ruby files
+- [ ] Add social media sharing features 
+- [ ] Add a Victory graph to track consistent habit progress
+- [ ] Add a feature to reflect HabitCategories joint model
+- [ ] Replace AMS with [fastJSON](https://github.com/Netflix/fast_jsonapi) for speed
 
 ## Authors
 
