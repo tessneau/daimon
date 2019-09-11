@@ -48,7 +48,6 @@ A community driven habit-tracking app for honest professionals.
 - [x] Refactor Redux and Ruby files
 - [ ] Add social media sharing features 
 - [ ] Add a Victory graph to track consistent habit progress
-- [ ] Add a feature to reflect HabitCategories joint model
 - [ ] Replace AMS with [fastJSON](https://github.com/Netflix/fast_jsonapi) for speed
 
 ## 🦕Authors
