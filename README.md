@@ -2,6 +2,8 @@
 
 A community driven habit-tracking app for honest professionals.
 
+[Check it out live](https://daimon-frontend.herokuapp.com/)
+
 ![app runthrough gif](https://giant.gfycat.com/RawTiredElk.gif)
 
 ## 👣 Installation
